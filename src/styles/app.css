@@ -22,6 +22,7 @@ html{
     background: linear-gradient(180deg, rgba(0,0,0,1) 30%, rgba(51,30,49,1) 68%, rgba(153,62,162,1) 100%);  */
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(0,0,0,1) 25%, rgba(51,30,49,1) 65%, rgba(153,62,162,1) 100%); 
+   
 }
 body {
     margin: 0 auto;
@@ -85,9 +86,40 @@ body {
     width: 25px;
     margin-left: 10px;
 }
-
-
-
+.rightRow,.leftRow{
+  position: absolute;
+  width: 50px;
+}
+.main__trendingMovieContainer{
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 450px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 50px;
+  overscroll-behavior-x: cover;
+  scroll-snap-type: x proximity;
+}
+.main__movieCard{
+  height: 350px;
+  scroll-snap-align: center;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.main__movieImg{
+  border-radius: 20px;
+  width: 250px;
+  height: 315px;
+  object-fit: cover;
+}
+.main__movieTitle{
+  font-size: 20px;
+  text-align: center;
+}
 .main__exploreOptionsTitle{
     font-size: 2.5em;
     margin: 50px 0 40px;
