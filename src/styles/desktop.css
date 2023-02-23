@@ -1,0 +1,14 @@
+.header{
+    flex-direction: row;
+    padding: 20px 40px;
+    justify-content: space-between;
+}
+.header__logo{
+    width: 150px;
+}
+.main{
+    font-size: 12px;
+}
+.main__exploreOptionsLi--input input{
+    padding: 8px 50px;
+}

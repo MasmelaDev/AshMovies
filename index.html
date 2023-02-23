@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/styles/app.css">
+    <link rel="stylesheet" href="./src/styles/tablet.css" media="(min-width:762px)">
+    <link rel="stylesheet" href="./src/styles/desktop.css" media="(min-width:1080px)">
+
     <title>AshMovies</title>
 </head>
 <body>
-    <header>
-        <img class="header__menuMobile" src="./src/assets/bars-solid.svg" alt="menu">
-        <img class="header__logo" src="./src/assets/logo.svg" alt="logo">
+    <header class="header">
+        <img class="header__logo" src="./src/assets/logo.png" alt="logo">
         <nav class="nav">
-            <ul class="nav__ul">
+            <ul class="nav__ul ">
                 <li class="nav__li"><a href="#">Home</a></li>
                 <li class="nav__li"><a href="#trending">Trending</a></li>
                 <li class="nav__li"><a href="#explore">Explore</a></li>
@@ -27,22 +29,26 @@
     </section>
     <main class="main">
         <section id="trending" class="main__trending">
-            <div class="main__trendingTitleContainer">
-                <h2 class="main__trendingTitle" >Trending</h2>
-            </div>
+        
+            <h2 class="main__trendingTitle" >Trending</h2>
+
             <div class="main__trendingMovieContainer">
                 <article class="main__trendingMovie"></article>
             </div>
         </section>
-        <section class="main__explore">
+        <section id="explore" class="main__explore">
         
-            <nav class="main__exploreOptions">
-                <h2 class="main__exploreOptions">Explore</h2>
-                <ul class="">
-                    <li>Genres</li>
-                    <li>Popular</li>
-                    <li>New</li>
-                    <li><input type="text"> icon</li>
+            <nav>
+                <h2 class="main__exploreOptionsTitle">Explore</h2>
+                <ul class="main__exploreOptions">
+                    <div>
+                        <li class="main__exploreOptionsLi">Genres</li>
+                        <li class="main__exploreOptionsLi" >Popular</li>
+                        <li class="main__exploreOptionsLi" >New</li>
+                    </div>
+                    <div>
+                        <li class="main__exploreOptionsLi main__exploreOptionsLi--input" ><input type="text"> <img class="searchIcon" src="./src/assets/magnifying-glass-solid.svg" alt="search Icon"> </li>
+                    </div>
                 </ul>
             </nav>
             
@@ -53,6 +59,8 @@
             </section>
         </section>
     </main>
+    <footer>
+    </footer>
     <script src="./src/js/secret.js"></script>
     <script src="./src/js/main.js"></script>
 </body>
