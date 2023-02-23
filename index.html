@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/styles/app.css">
+    <title>AshMovies</title>
+</head>
+<body>
+    <header>
+        <img class="header__menuMobile" src="./src/assets/bars-solid.svg" alt="menu">
+        <img class="header__logo" src="./src/assets/logo.svg" alt="logo">
+        <nav class="nav">
+            <ul class="nav__ul">
+                <li class="nav__li"><a href="#">Home</a></li>
+                <li class="nav__li"><a href="#trending">Trending</a></li>
+                <li class="nav__li"><a href="#explore">Explore</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <article class="hero__article">
+
+        </article>
+    </section>
+    <main class="main">
+        <section id="trending" class="main__trending">
+            <div class="main__trendingTitleContainer">
+                <h2 class="main__trendingTitle" >Trending</h2>
+            </div>
+            <div class="main__trendingMovieContainer">
+                <article class="main__trendingMovie"></article>
+            </div>
+        </section>
+        <section class="main__explore">
+        
+            <nav class="main__exploreOptions">
+                <h2 class="main__exploreOptions">Explore</h2>
+                <ul class="">
+                    <li>Genres</li>
+                    <li>Popular</li>
+                    <li>New</li>
+                    <li><input type="text"> icon</li>
+                </ul>
+            </nav>
+            
+            <section class="main__exploreContainer">
+                <section class="main__exploreSection"></section>
+                <section class="main__exploreSection"></section>
+                <section class="main__exploreSection"></section>
+            </section>
+        </section>
+    </main>
+    <script src="./src/js/secret.js"></script>
+    <script src="./src/js/main.js"></script>
+</body>
+</html>
