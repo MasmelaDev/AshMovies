@@ -3,5 +3,30 @@
     justify-content: space-between;
 }
 .header{
-    font-size: 11px;
+    font-size: 12px;
+}
+.trending__rightRowContainer,
+.trending__leftRowContainer {
+  width: 40px;
+  height: 40px;
+}
+.trending__rightRowContainer {
+  right: -12px;
+}
+.trending__leftRowContainer {
+  left: -12px;
+}
+
+.hero__article{
+  padding-left: 40px;
+  position: absolute;
+  top: 30px;
+  align-items: flex-start;
+
+}
+.hero__title,.hero__overview{
+  text-align: start;
+}
+.hero__description{
+  justify-content: flex-start;
 }

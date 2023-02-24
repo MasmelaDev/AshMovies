@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="./src/styles/app.css">
     <link rel="stylesheet" href="./src/styles/tablet.css" media="(min-width:762px)">
     <link rel="stylesheet" href="./src/styles/desktop.css" media="(min-width:1080px)">
-
+    <link rel="stylesheet" href="./src/styles/glider.min.css">
     <title>AshMovies</title>
 </head>
-<body>
+
+    <!-- --------------- HEADER ---------------  -->
     <header class="header">
         <img class="header__logo" src="./src/assets/logo.png" alt="logo">
         <nav class="nav">
@@ -22,26 +23,54 @@
         </nav>
     </header>
 
+    <!-- --------------- HERO --------------- -->
     <section class="hero">
         <article class="hero__article">
-
+            <h3 class="hero__title"></h3>
+            <div class="hero__description">
+                <div class="hero__rate">
+                    <img src="./src/assets/star-solid.svg" alt="star icon rate"> <span id="rate"></span>
+                </div>
+                <span class="hero__span" >MOVIE</span>
+                <span class="hero__span hero__span--gray" >FULL HD</span>
+            </div>
+            <p class="hero__overview"></p>
+            <div class="hero__playTrailer" ><img src="./src/assets/play-solid.svg" alt="play icon">Play Trailer</div>
         </article>
     </section>
+
+    <!-- --------------- MAIN --------------- -->
     <main class="main">
-        <section id="trending" class="main__trending">
-        
-            <h2 class="main__trendingTitle" >Trending</h2>
-            <div class="pages">s</div>
-            <div>
-                <img class="leftRow" src="./src/assets/angle-left-solid.svg" alt="leftRow">
-                <div class="main__trendingMovieContainer">
-                </div>
-                <img class="rightRow" src="./src/assets/angle-right-solid.svg" alt="rightRow">
+
+
+    <!-- --------------- SECTION TRENDING MOVIES --------------- -->
+
+        <section id="trending" class="trending">
+            <h2 class="trending__title" >Trending</h2>
+
+            <div class="trending__container" >
+                
+                <button class="trending__leftRowContainer" >
+                    <img class="trending__leftRow" src="./src/assets/angle-left-solid.svg" alt="leftRow">
+                </button>
+
+                
+                <div class="trending__moviesContainer"><!-- Movies --></div>
+                
+                
+                <button class="trending__rightRowContainer">
+                    <img class="trending__rightRow" src="./src/assets/angle-right-solid.svg" alt="rightRow">
+                </button>
+                
             </div>
 
-
-
+            <div role="tablist" class="trending__controls"></div>
+            
         </section>
+
+
+    <!-- --------------- SECTION EXPLORE MOVIES --------------- -->
+
         <section id="explore" class="main__explore">
         
             <nav>
@@ -67,6 +96,7 @@
     </main>
     <footer>
     </footer>
+    <script src="./src/js/glider.min.js"  ></script>
     <script src="./src/js/secret.js"></script>
     <script src="./src/js/main.js"></script>
 </body>
