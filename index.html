@@ -50,25 +50,25 @@
 
             <div class="trending__container" >
                 
-                <button class="trending__leftRowContainer" >
-                    <img class="trending__leftRow" src="./src/assets/angle-left-solid.svg" alt="leftRow">
+                <button class="leftRowContainer" >
+                    <img class="leftRow" src="./src/assets/angle-left-solid.svg" alt="leftRow">
                 </button>
 
                 
                 <div class="trending__moviesContainer"><!-- Movies --></div>
                 
                 
-                <button class="trending__rightRowContainer">
-                    <img class="trending__rightRow" src="./src/assets/angle-right-solid.svg" alt="rightRow">
+                <button class="rightRowContainer">
+                    <img class="rightRow" src="./src/assets/angle-right-solid.svg" alt="rightRow">
                 </button>
                 
             </div>
 
-            <div role="tablist" class="trending__controls"></div>
+            <div  class="trending__controls"></div>
             
         </section>
 
-
+        
     <!-- --------------- SECTION EXPLORE MOVIES --------------- -->
 
         <section id="explore" class="main__explore">
@@ -76,28 +76,108 @@
             <nav>
                 <h2 class="main__exploreOptionsTitle">Explore</h2>
                 <ul class="main__exploreOptions">
-                    <div>
-                        <li class="main__exploreOptionsLi">Genres</li>
-                        <li class="main__exploreOptionsLi" >Popular</li>
-                        <li class="main__exploreOptionsLi" >New</li>
-                    </div>
-                    <div>
-                        <li class="main__exploreOptionsLi main__exploreOptionsLi--input" ><input type="text"> <img class="searchIcon" src="./src/assets/magnifying-glass-solid.svg" alt="search Icon"> </li>
-                    </div>
+                    <ul class="main__optionsButtons">
+                        <li class="main__exploreOptionsLi genres active">Genres</li>
+                        <li class="main__exploreOptionsLi popular" >Popular</li>
+                        <li class="main__exploreOptionsLi new" >New</li>
+                    </ul>
+                    <ul>
+                        <li class="main__exploreOptionsLi main__exploreOptionsLi--input" >
+                            <label for="searchInput">Search Movies</label>
+                            <input id="searchInput" type="text"> <img class="searchIcon" src="./src/assets/magnifying-glass-solid.svg" alt="search Icon"> 
+                        </li>
+                    </ul>
                 </ul>
             </nav>
             
             <section class="main__exploreContainer">
-                <section class="main__exploreSection"></section>
-                <section class="main__exploreSection"></section>
-                <section class="main__exploreSection"></section>
+                <section class="main__exploreSection genres active">
+
+                    <div class="genres__container active ">
+
+                        <div class="genres__carouselContainer ">
+                            
+                            <button class="leftRowContainerGenres" >
+                                <img class="leftRow" src="./src/assets/angle-left-solid.svg" alt="leftRow">
+                            </button>
+                            
+                            
+                            <div class="genres__carousel">
+                                <article id="id28" class="genre up">
+                                    <h2>Action</h2>
+                                </article>
+                                <article id="id10749" class="genre down">
+                                    <h2>Romance</h2>
+                                </article>
+                                <article id="id35" class="genre up">
+                                    <h2>Comedy</h2>
+                                </article>
+                                <article id="id53" class="genre down">
+                                    <h2>Thriller</h2>
+                                </article>
+                                <article id="id878" class="genre up">
+                                    <h2>Science-Fiction</h2>
+                                </article>
+                                <article id="id18" class="genre down">
+                                    <h2>Drama</h2>
+                                </article>
+                                <article id="id14" class="genre up">
+                                    <h2>Fantasy</h2>
+                                </article>
+                                <article id="id16" class="genre down">
+                                    <h2>Animation</h2>
+                                </article>
+                                <article id="id9648" class="genre up">
+                                    <h2>Mystery</h2>
+                                </article>
+                                <article id="id12" class="genre down">
+                                    <h2>Adventure</h2>
+                                </article>
+                            </div>
+                            
+                            <button class="rightRowContainerGenres">
+                                <img class="rightRow" src="./src/assets/angle-right-solid.svg" alt="rightRow">
+                            </button>
+                        
+                        </div>
+
+                        <div class="genres__controls"></div>
+                    </div>
+                        
+                    <!-- <div class="genres__moviesContainer">
+                        <h2 class="genres__moviesContainerTitle">Action</h2>
+                        <div class="genres__moviesCarouselContainer">
+                            <button class="leftRowContainerGenreMovies" >
+                                <img class="leftRow" src="./src/assets/angle-left-solid.svg" alt="leftRow">
+                            </button>
+                            
+                            
+                            <div class="genres__moviesCarousel"></div>
+                            
+                            <button class="rightRowContainerGenreMovies">
+                                <img class="rightRow" src="./src/assets/angle-right-solid.svg" alt="rightRow">
+                            </button>
+                        </div>
+                        <div class="genres__moviesControls"></div>
+                    </div> -->
+
+
+                </section>
+                <section class="main__exploreSection popular">
+                 aaaa
+                </section>
+                <section class="main__exploreSection new">
+                        asdsddddddddddddddd
+                </section>
             </section>
         </section>
     </main>
     <footer>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="./src/js/glider.min.js"  ></script>
     <script src="./src/js/secret.js"></script>
     <script src="./src/js/main.js"></script>
+    <script src="./src/js/navigation.js"></script>
 </body>
 </html>

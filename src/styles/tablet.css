@@ -5,17 +5,7 @@
 .header{
     font-size: 12px;
 }
-.trending__rightRowContainer,
-.trending__leftRowContainer {
-  width: 40px;
-  height: 40px;
-}
-.trending__rightRowContainer {
-  right: -12px;
-}
-.trending__leftRowContainer {
-  left: -12px;
-}
+
 
 .hero__article{
   padding-left: 40px;
@@ -29,4 +19,14 @@
 }
 .hero__description{
   justify-content: flex-start;
+}
+.genres__carouselContainer{
+  height: 800px;
+}
+
+.up{
+  top: 80px;
+}
+.down{
+  top: 0px;
 }

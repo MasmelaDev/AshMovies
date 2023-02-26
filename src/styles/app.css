@@ -48,7 +48,7 @@ body {
 }
 
 .header__logo {
-  max-width: 250px;
+  width: 250px;
   height: auto;
 }
 
@@ -161,7 +161,7 @@ body {
     padding: 30px;
     color: var(--white);
     font-size: 10px;
-
+  overflow: hidden;
 }
 
 /*------- trending movies -------- */
@@ -192,9 +192,9 @@ body {
   margin-bottom: 20px;
 }
 
-/*------- trending movies container  rows-------- */
+/*------- button  rows-------- */
 
-.trending__rightRowContainer,.trending__leftRowContainer{
+.rightRowContainer,.leftRowContainer,.leftRowContainerGenres,.rightRowContainerGenres,.rightRowContainerGenreMovies,.leftRowContainerGenreMovies{
   position: absolute;
   display: flex;
   align-items: center;
@@ -207,15 +207,15 @@ body {
   background-color: rgba(0,0,0,.8);
   cursor: pointer;
 }
-.trending__rightRow,.trending__leftRow{
+.rightRow,.leftRow{
   width: 80%;
   height: 80%;
 }
-.trending__rightRowContainer{
-right: -10px;
+.rightRowContainer,.rightRowContainerGenres,.rightRowContainerGenreMovies{
+right: -22px;
 }
-.trending__leftRowContainer{
-  left: -10px;
+.leftRowContainer,.leftRowContainerGenres,.leftRowContainerGenreMovies{
+  left: -22px;
 }
 
 
@@ -225,16 +225,17 @@ right: -10px;
 
 /*------- trending movies container  movies-------- */
 
-.trending__movieCard{
+.movieCard{
   margin: 0 10px;
+  height: 500px !important;
 }
-.trending__movieImg{
+.movieImg{
   width: 100%;
   height: 80%;
   border-radius: 20px;
   object-fit: cover;
 }
-.trending__movieTitle{
+.movieTitle{
   margin-top: 25px;
   font-size: 1.7em;
   text-align: center;
@@ -246,6 +247,7 @@ right: -10px;
 
 .main__explore{
   margin-top: 100px;
+  height: 1200px;
 }
 
 .main__exploreOptionsTitle{
@@ -255,20 +257,29 @@ right: -10px;
 .main__exploreOptions{
     display: flex;
     flex-wrap: wrap;
+    margin: 20px 0;
     gap: 35px;
     list-style: none;
     justify-content: center;
 }
-.main__exploreOptions div{
+.main__exploreOptions ul{
     display: flex;
     gap: 25px;
 }
 .main__exploreOptionsLi{
-    margin: 0 10px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1.8em;
     display: flex;
+    border-radius: 15px;
+    transition: .5s;
 }
-
+.main__exploreOptionsLi.active{
+  background-color: var(--purple-main);
+  font-weight: 600;
+}
 .main__exploreOptionsLi--input input{
     border: none;
     margin-right: 5px;
@@ -281,14 +292,158 @@ right: -10px;
 
     font-family: var(--lato);
 }
-
+.main__exploreOptionsLi--input label{
+  margin-right: 15px;
+}
 .searchIcon {
   width: 25px;
+  height: auto;
   cursor: pointer;
   margin-left: 5px;
 
 }
+
+.main__exploreContainer{
+  position: relative;
+  height: 1500px;
+}
 .main__exploreSection{
-    height: 200px;
+  position: absolute;
+  height: 850px;
+  width: 100%;
+  opacity: 0;
+  transition: all .8s;
+  z-index: -1;
+  }
+  
+  
+  /*------- explore movies genres -------- */
+  
+.genres{
+    left: -10000px;
+}
+.popular{
+  right: -10000px;
+ 
+}
+.new{
+  top: -10000px;
+  transition: opacity 8s ease, top .5s
+
 }
 
+.genres.active{
+  opacity: 1;
+  left: 0;
+  z-index: 100;
+}
+.popular.active{
+  opacity: 1;
+  right: 0; 
+  z-index: 100;
+  
+}
+.new.active{
+  opacity: 1;
+  top: 0;
+  z-index: 100;
+}
+
+.genre{
+  cursor: pointer;
+  border-radius: 16px;
+  background: rgba(0,0,0,.8);
+  max-height: 500px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  transition: all .5s;
+
+}
+.genre::before{
+  content: "";
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0,0,0,.5);
+}
+.genre:hover{
+  transform: scale(1.1);
+}
+.genre h2{
+  opacity: 1;
+  position: relative;
+  font-size: 2.4em;
+}
+
+
+.genres__container,.genres__moviesContainer{
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  height: 850px;
+  left: -10000px;
+  transition: opacity 2s, left .5s;
+
+}
+.genres__container.active,.genres__moviesContainer.active{
+  opacity: 1;
+  z-index: 100;
+  left: 0;
+
+}
+.genres__carouselContainer,.genres__moviesCarouselContainer{
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 800px;
+  margin: 0 auto;
+  
+}
+
+.genres__carousel,.genres__moviesCarousel {
+  overflow: hidden;
+  height: 100%;
+}
+
+.genres__moviesControls{
+  position: absolute;
+  width: 100%;
+  bottom: 120px;
+}
+.genres__moviesContainerTitle{
+  font-size: 2em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  height: 50px;
+  margin: 0 30px;
+  width: auto;
+  position: absolute;
+  top: 40px;
+  z-index: 100;
+}
+
+.genres__moviesContainerTitle::before{
+  content: url("../assets/angle-left-solid.svg");
+  display: block;
+  position: relative;
+  top: -6px;
+  width: 15px;
+  height: 15px;
+}
+.glider-track{
+  height: 100%;
+  align-items: center;
+}
+button.glider-dot.active{
+  background: var(--violet);
+}
