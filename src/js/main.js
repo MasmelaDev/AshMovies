@@ -10,6 +10,34 @@ const api = axios.create({
 
 const baseUrlImage = "https://image.tmdb.org/t/p";
 
+
+function callback(entries, observer){
+  entries
+  .filter(entry => entry.isIntersecting)
+  .forEach(entry=> {
+    if(entry.target.nodeName == "IMG"){
+      const parent = entry.target.parentNode
+      parent.classList.add("show")
+      const img = entry.target
+      const src = img.dataset.src
+      img.setAttribute("src",src)
+
+
+      observer.unobserve(entry.target)
+    }
+    if (entry.target.nodeName == "ARTICLE"){
+      const article = entry.target
+      const src = article.dataset.src
+      article.style.backgroundImage = src
+      observer.unobserve(entry.target)
+    }
+
+  })
+}
+
+const observer = new IntersectionObserver(callback,{})
+
+
 async function getTopRatedtMovies() {
   const { data } = await api(`/movie/top_rated`);
 
@@ -37,8 +65,9 @@ function getGenresPreview() {
         with_genres: genre.id.slice(2),
       },
     });
-    const movie = data.results[5];
-    genre.style.backgroundImage = `url(${baseUrlImage}/w342${movie.poster_path})`;
+    const movie = data.results[18];
+    genre.dataset.src =`url(${baseUrlImage}/w342${movie.poster_path})`
+    observer.observe(genre)
   });
 }
 
@@ -121,7 +150,9 @@ async function getAndAppendMovies(
         const movieImg = document.createElement("img");
         movieImg.classList.add("movieImg");
         movieImg.alt = movie.title;
-        movieImg.src = baseUrlImage + "/w342" + movie.poster_path;
+        movieImg.dataset.src = baseUrlImage + "/w342" + movie.poster_path;
+        observer.observe(movieImg)
+
         const movieTitle = document.createElement("h2");
         movieTitle.textContent = movie.title;
         movieTitle.classList.add("movieTitle");
