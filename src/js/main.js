@@ -10,7 +10,6 @@ const api = axios.create({
 
 const baseUrlImage = "https://image.tmdb.org/t/p";
 
-
 async function getTopRatedtMovies() {
   const { data } = await api(`/movie/top_rated`);
 
@@ -20,6 +19,7 @@ async function getTopRatedtMovies() {
   const random = Math.floor(Math.random() * 20);
   img.src = `${baseUrlImage}/original${data.results[random].backdrop_path}`;
   img.alt = "top rated movie image";
+  img.className = "hero__img"
   const overview = document.querySelector(".hero__overview");
   overview.textContent = data.results[random].overview;
   const rate = document.querySelector("#rate");
@@ -38,18 +38,18 @@ function getGenresPreview() {
       },
     });
     const movie = data.results[5];
-    genre.style.backgroundImage = `url(${baseUrlImage}/original${movie.poster_path})`;
+    genre.style.backgroundImage = `url(${baseUrlImage}/w342${movie.poster_path})`;
   });
 }
 
 const carouselGenres = new Glider(document.querySelector(".genres__carousel"), {
-  slidesToShow: 1,
-  slidesToScroll: 1,
+  slidesToShow: 2,
+  slidesToScroll: 2,
   draggable: false,
   dots: ".genres__controls",
   arrows: {
-    prev: ".leftRowContainerGenres",
-    next: ".rightRowContainerGenres",
+    prev: ".prevButtonGenres",
+    next: ".nextButtonGenres",
   },
   responsive: [
     {
@@ -88,73 +88,61 @@ const carouselGenres = new Glider(document.querySelector(".genres__carousel"), {
   ],
 });
 
-async function getAndAppendMovies(parentContainer,path,controls,optionalConfig={}){
-    const moviesContainer = document.querySelector(parentContainer)
-    const moviesCards = [];
-    const { data } = await api(path,optionalConfig);
+
+
+async function getAndAppendMovies(
+  parentContainer,
+  path,
+  optionalConfig,
+) {
+  const moviesContainer = document.querySelector(parentContainer);
+  moviesContainer.innerHTML = "";
+  const moviesCards = [];
+  try{
+
+    const { data } = await api(path, optionalConfig);
+    
     const movies = data.results;
+    if(movies.length < 2){
+      console.log("aa")
+      const container = document.createElement("div")
+      container.style = "width:700px;height:400px;display:flex;align-items:center;justify-content:center;"
+      const text = document.createElement("h2")
+      container.append(text)
+      text.innerText="We're sorry, we couldn't find what you're looking for."
+      moviesContainer.append(container)
+      return false
+    }
     movies.forEach((movie) => {
-      const movieCard = document.createElement("article");
-      movieCard.classList.add("movieCard");
-      const movieImg = document.createElement("img");
-      movieImg.classList.add("movieImg");
-      movieImg.alt = movie.title;
-      movieImg.src = baseUrlImage + "/w300" + movie.poster_path;
-      const movieTitle = document.createElement("h2");
-      movieTitle.textContent = movie.title;
-      movieTitle.classList.add("movieTitle");
-  
-      movieCard.append(movieImg, movieTitle);
-  
-      moviesCards.push(movieCard);
-    });
-    console.log(data);
-    moviesContainer.append(...moviesCards);
-
-    const moviesCarousel = await new Glider(document.querySelector(parentContainer),
-      {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        draggable: false,
-        dots: controls[0],
-        arrows: {
-          prev: controls[1],
-          next: controls[2],
-        },
-        responsive: [
-          {
-            // screens greater than >= 400px
-            breakpoint: 400,
-            settings: {
-              // Set to `auto` and provide item width to adjust to viewport
-              slidesToShow: 2,
-              slidesToScroll: 2,
-            },
-          },
-          {
-            // screens greater than >= 680px
-            breakpoint: 680,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-            },
-          },
-          {
-            // screens greater than >= 1080px
-            breakpoint: 1080,
-            settings: {
-              slidesToShow: 5,
-              slidesToScroll: 5,
-            },
-          },
-        ],
-      }
-    );
-
+      if(movie.poster_path){
+        const movieCard = document.createElement("article");
+        movieCard.classList.add("movieCard");
+        movieCard.id = movie.id
+        const movieImg = document.createElement("img");
+        movieImg.classList.add("movieImg");
+        movieImg.alt = movie.title;
+        movieImg.src = baseUrlImage + "/w342" + movie.poster_path;
+        const movieTitle = document.createElement("h2");
+        movieTitle.textContent = movie.title;
+        movieTitle.classList.add("movieTitle");
+        
+        movieCard.append(movieImg, movieTitle);
+        
+        moviesCards.push(movieCard);
+  }
+});
+console.log(data);
+moviesContainer.append(...moviesCards);
+return true
+}catch{
+  const container = document.createElement("div")
+  const text = document.createElement("h2")
+  container.append(text)
+  text.innerText="We're sorry, we couldn't find what you're looking for."
+  moviesContainer.append(container)
+}
 }
 
-
-
 getGenresPreview();
-getAndAppendMovies(".trending__moviesContainer","/trending/movie/day",[".trending__controls",".leftRowContainer ",".rightRowContainer "])
 getTopRatedtMovies();
+

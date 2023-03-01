@@ -7,13 +7,14 @@
 .header__logo {
   width: 250px;
 }
+
+.hero__article{
+  top: 300px;
+}
 .main {
   font-size: 12px;
 }
-.main__exploreOptionsLi--input input {
-  width: 300px;
-  padding: 8px 18px;
-}
-.hero__article{
-  top: 300px;
+
+.explore__optionSearch{
+  justify-content: flex-end;
 }

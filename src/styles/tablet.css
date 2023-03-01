@@ -30,3 +30,40 @@
 .down{
   top: 0px;
 }
+
+
+.explore__optionSearch{
+  margin: 30px 0 60px;
+}
+
+.explore__optionSearch label{
+  margin-right: 20px;
+  font-size: 1.4em;
+}
+.explore__optionSearch input {
+  width: 250px;
+  height: 35px;
+  font-size: 1em;
+}
+.genres__container,.genres__resultContainer{
+
+  left: -5000px;
+  transition: opacity 2s, left .8s;
+
+}
+.movieDescription__overview{
+  font-size: 1.2em;
+}
+.movieDescription__details{
+  top: 25%;
+
+  align-items: flex-start;
+  text-align: left;
+
+}
+.genres {
+  margin-top: 130px;
+}
+.movieCard{
+  margin: 20px 10px;
+}

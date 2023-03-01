@@ -10,15 +10,32 @@
     <link rel="stylesheet" href="./src/styles/glider.min.css">
     <title>AshMovies</title>
 </head>
-
+<body>
+    <div class="movieDescription">
+        <div class="movieDescription__back"></div>
+        <div class="movieDescription__imgContainer">
+        </div>
+        <div class="movieDescription__details">
+            <h3 class="movieDescription__title"></h3>
+            <div class="movieDescription__div">
+                <div class="movieDescription__rate">
+                    <img src="./src/assets/star-solid.svg" alt="star icon rate"> <span id="movieRate"></span>
+                </div>
+                <span class="movieDescription__span" >MOVIE</span>
+                <span class="movieDescription__span movieDescription__span--" >FULL HD</span>
+            </div>
+            <p class="movieDescription__overview"></p>
+            <div class="movieDescription__playTrailer" ><img src="./src/assets/play-solid.svg" alt="play icon">Play Trailer</div>
+        </div>
+    </div>
+    
     <!-- --------------- HEADER ---------------  -->
     <header class="header">
         <img class="header__logo" src="./src/assets/logo.png" alt="logo">
         <nav class="nav">
-            <ul class="nav__ul ">
-                <li class="nav__li"><a href="#">Home</a></li>
-                <li class="nav__li"><a href="#trending">Trending</a></li>
+            <ul class="nav__ul ">            
                 <li class="nav__li"><a href="#explore">Explore</a></li>
+                <li class="nav__li"><a href="#Sections">Sections</a></li>
             </ul>
         </nav>
     </header>
@@ -42,138 +59,100 @@
     <!-- --------------- MAIN --------------- -->
     <main class="main">
 
-
-    <!-- --------------- SECTION TRENDING MOVIES --------------- -->
-
-        <section id="trending" class="trending">
-            <h2 class="trending__title" >Trending</h2>
-
-            <div class="trending__container" >
-                
-                <button class="leftRowContainer" >
-                    <img class="leftRow" src="./src/assets/angle-left-solid.svg" alt="leftRow">
-                </button>
-
-                
-                <div class="trending__moviesContainer"><!-- Movies --></div>
-                
-                
-                <button class="rightRowContainer">
-                    <img class="rightRow" src="./src/assets/angle-right-solid.svg" alt="rightRow">
-                </button>
-                
-            </div>
-
-            <div  class="trending__controls"></div>
-            
-        </section>
-
+    <section id="Sections" class="changeSection">
+        <nav class="changeSection__nav">
+            <ul class="changeSection__ul">
+                <li class="changeSection__li">Trending</li>
+                <li class="changeSection__li">New</li>
+                <li class="changeSection__li">Popular</li>
+            </ul>
+        </nav>
+        <section class="currentSection"></section>
         
+    </section>
     <!-- --------------- SECTION EXPLORE MOVIES --------------- -->
 
-        <section id="explore" class="main__explore">
+    <section id="explore" class="explore">
+        <h2 class="explore__title">Explore</h2>
         
-            <nav>
-                <h2 class="main__exploreOptionsTitle">Explore</h2>
-                <ul class="main__exploreOptions">
-                    <ul class="main__optionsButtons">
-                        <li class="main__exploreOptionsLi genres active">Genres</li>
-                        <li class="main__exploreOptionsLi popular" >Popular</li>
-                        <li class="main__exploreOptionsLi new" >New</li>
-                    </ul>
-                    <ul>
-                        <li class="main__exploreOptionsLi main__exploreOptionsLi--input" >
-                            <label for="searchInput">Search Movies</label>
-                            <input id="searchInput" type="text"> <img class="searchIcon" src="./src/assets/magnifying-glass-solid.svg" alt="search Icon"> 
-                        </li>
-                    </ul>
-                </ul>
-            </nav>
-            
-            <section class="main__exploreContainer">
-                <section class="main__exploreSection genres active">
+        <div class="explore__optionSearch" >
+            <label for="searchInput">Search Movies</label>
+            <input id="searchInput" type="text">
+            <img class="searchIcon" src="./src/assets/magnifying-glass-solid.svg" alt="search Icon"> 
+        </div>
+      
+        
+        <section class="explore__container">
+            <section class="explore__section genres active">
 
-                    <div class="genres__container active ">
+                <div class="genres__container active">
 
-                        <div class="genres__carouselContainer ">
-                            
-                            <button class="leftRowContainerGenres" >
-                                <img class="leftRow" src="./src/assets/angle-left-solid.svg" alt="leftRow">
-                            </button>
-                            
-                            
-                            <div class="genres__carousel">
-                                <article id="id28" class="genre up">
-                                    <h2>Action</h2>
-                                </article>
-                                <article id="id10749" class="genre down">
-                                    <h2>Romance</h2>
-                                </article>
-                                <article id="id35" class="genre up">
-                                    <h2>Comedy</h2>
-                                </article>
-                                <article id="id53" class="genre down">
-                                    <h2>Thriller</h2>
-                                </article>
-                                <article id="id878" class="genre up">
-                                    <h2>Science-Fiction</h2>
-                                </article>
-                                <article id="id18" class="genre down">
-                                    <h2>Drama</h2>
-                                </article>
-                                <article id="id14" class="genre up">
-                                    <h2>Fantasy</h2>
-                                </article>
-                                <article id="id16" class="genre down">
-                                    <h2>Animation</h2>
-                                </article>
-                                <article id="id9648" class="genre up">
-                                    <h2>Mystery</h2>
-                                </article>
-                                <article id="id12" class="genre down">
-                                    <h2>Adventure</h2>
-                                </article>
-                            </div>
-                            
-                            <button class="rightRowContainerGenres">
-                                <img class="rightRow" src="./src/assets/angle-right-solid.svg" alt="rightRow">
-                            </button>
+                    <div class="genres__carouselContainer ">
                         
+                        <button class="leftRowContainer prevButtonGenres" >
+                            <img class="leftRow" src="./src/assets/angle-left-solid.svg" alt="leftRow">
+                        </button>
+                        
+                        
+                        <div class="genres__carousel">
+                            <article id="id28" class="genre up">
+                                <h2>Action</h2>
+                            </article>
+                            <article id="id10749" class="genre down">
+                                <h2>Romance</h2>
+                            </article>
+                            <article id="id35" class="genre up">
+                                <h2>Comedy</h2>
+                            </article>
+                            <article id="id53" class="genre down">
+                                <h2>Thriller</h2>
+                            </article>
+                            <article id="id878" class="genre up">
+                                <h2>Science Fiction</h2>
+                            </article>
+                            <article id="id18" class="genre down">
+                                <h2>Drama</h2>
+                            </article>
+                            <article id="id14" class="genre up">
+                                <h2>Fantasy</h2>
+                            </article>
+                            <article id="id16" class="genre down">
+                                <h2>Animation</h2>
+                            </article>
+                            <article id="id9648" class="genre up">
+                                <h2>Mystery</h2>
+                            </article>
+                            <article id="id12" class="genre down">
+                                <h2>Adventure</h2>
+                            </article>
                         </div>
-
-                        <div class="genres__controls"></div>
+                        
+                        <button class="rightRowContainer nextButtonGenres">
+                            <img class="rightRow" src="./src/assets/angle-right-solid.svg" alt="rightRow">
+                        </button>
+                    
                     </div>
-                        
-                    <!-- <div class="genres__moviesContainer">
-                        <h2 class="genres__moviesContainerTitle">Action</h2>
-                        <div class="genres__moviesCarouselContainer">
-                            <button class="leftRowContainerGenreMovies" >
-                                <img class="leftRow" src="./src/assets/angle-left-solid.svg" alt="leftRow">
-                            </button>
-                            
-                            
-                            <div class="genres__moviesCarousel"></div>
-                            
-                            <button class="rightRowContainerGenreMovies">
-                                <img class="rightRow" src="./src/assets/angle-right-solid.svg" alt="rightRow">
-                            </button>
-                        </div>
-                        <div class="genres__moviesControls"></div>
-                    </div> -->
-
-
-                </section>
-                <section class="main__exploreSection popular">
-                 aaaa
-                </section>
-                <section class="main__exploreSection new">
-                        asdsddddddddddddddd
-                </section>
+                    <div class="genres__controls"></div>
+                </div>
             </section>
+            <section class="explore__section genres__resultContainer"></section>
+   
+
+            <section class="explore__section search"></section>
         </section>
+    </section>
+
+
+
+
+
+
+
+
+        
+
     </main>
-    <footer>
-    </footer>
+    <footer class="footer">Made with <a target="_blank" href="https://developers.themoviedb.org/3/getting-started/introduction">TheMovieDB</a> by <a target="_blank" href="https://github.com/MasmelaDev/AshMovies">MasmelaDev</a>🎬</footer>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="./src/js/glider.min.js"  ></script>
     <script src="./src/js/secret.js"></script>
