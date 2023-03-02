@@ -1,12 +1,14 @@
+const API_KEY = "5d0f6d8dcbc34f94bb3f02b26d9cc789"
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   params: {
-    api_key: API_KEY,
+    api_key: API_KEY
   },
   headers: {
     "Content-Type": "application/json;charset=utf-8",
   },
 });
+
 
 const baseUrlImage = "https://image.tmdb.org/t/p";
 
