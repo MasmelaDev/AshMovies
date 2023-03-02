@@ -1,3 +1,7 @@
+html{
+ overflow-x: visible;
+}
+
 .header {
   flex-direction: row;
   padding: 20px 40px;
